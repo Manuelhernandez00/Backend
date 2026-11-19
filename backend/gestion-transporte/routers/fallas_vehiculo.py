@@ -102,8 +102,8 @@ def actualizar_falla(
         if cuerpo.atencion:
             falla.atencion = cuerpo.atencion
         falla.observacion_admin = cuerpo.observacion_admin
-        if cuerpo.estado:
-            falla.estado = cuerpo.estado
+        if cuerpo.status:
+            falla.status = cuerpo.status
         _sincronizar_vehiculo(db, falla)
 
     db.commit()

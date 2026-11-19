@@ -68,7 +68,7 @@ def usuario_actual(
         raise HTTPException(401, "Sesión inválida o vencida")
 
     usuario = db.query(Usuario).filter(
-        Usuario.id == usuario_id, Usuario.estado == "Activo"
+        Usuario.id == usuario_id, Usuario.status == "Activo"
     ).first()
     if not usuario:
         raise HTTPException(401, "Usuario no disponible")
@@ -84,8 +84,8 @@ def permisos_del_rol(db: Session, rol_id: int):
         .join(Modulo, RolModulo.modulo_id == Modulo.id)
         .filter(
             RolModulo.rol_id == rol_id,
-            RolModulo.estado == "Activo",
-            Modulo.estado == "Activo",
+            RolModulo.status == "Activo",
+            Modulo.status == "Activo",
         )
         .order_by(Modulo.orden)
         .all()

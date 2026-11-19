@@ -24,13 +24,13 @@ def ahora():
 
 
 class Auditoria:
-    """Campos que llevan TODAS las tablas: creado, actualizado y estado.
+    """Campos que llevan TODAS las tablas: created, updated y estado.
 
     El borrado es lógico: eliminar un registro = estado 'Inactivo'.
     """
-    creado = Column(DateTime, nullable=False, default=ahora)
-    actualizado = Column(DateTime, nullable=False, default=ahora, onupdate=ahora)
-    estado = Column(String(20), nullable=False, default="Activo")
+    created = Column(DateTime, nullable=False, default=ahora)
+    updated = Column(DateTime, nullable=False, default=ahora, onupdate=ahora)
+    status = Column(String(20), nullable=False, default="Activo")
 
 
 # ============================================================
@@ -199,7 +199,7 @@ class Vehiculo(Auditoria, Base):
     marca = Column(String(50))
     modelo = Column(String(50))
     capacidad = Column(Integer, nullable=False)
-    # Situación operativa (antes se llamaba "estado"; ahora "estado" es el
+    # Situación operativa (antes se llamaba "status"; ahora "status" es el
     # campo común de baja lógica).
     disponibilidad = Column(String(30), nullable=False, default="Disponible")
 

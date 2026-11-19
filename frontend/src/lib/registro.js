@@ -27,7 +27,7 @@ export const recursos = {
     columnas: [
       { key: 'nombre', label: 'Rol' },
       { key: 'descripcion', label: 'Descripción' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'nombre', label: 'Nombre del rol', type: 'text', required: true },
@@ -41,7 +41,7 @@ export const recursos = {
       { key: 'nombre', label: 'Módulo' },
       { key: 'clave', label: 'Clave' },
       { key: 'orden', label: 'Orden' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'nombre', label: 'Nombre del módulo', type: 'text', required: true },
@@ -59,7 +59,7 @@ export const recursos = {
       { key: 'puede_crear', label: 'Crear', tipo: 'si-no' },
       { key: 'puede_editar', label: 'Editar', tipo: 'si-no' },
       { key: 'puede_eliminar', label: 'Eliminar', tipo: 'si-no' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'rol_id', label: 'Rol', type: 'select', source: 'roles', required: true },
@@ -77,7 +77,7 @@ export const recursos = {
       { key: 'correo', label: 'Correo' },
       { key: 'telefono', label: 'Teléfono' },
       { key: 'rol_nombre', label: 'Rol' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'nombre', label: 'Nombres', type: 'text', required: true },
@@ -97,7 +97,7 @@ export const recursos = {
       { key: 'telefono', label: 'Teléfono' },
       { key: 'correo', label: 'Correo' },
       { key: 'usuario_nombre', label: 'Cuenta de acceso' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'nombre', label: 'Nombres', type: 'text', required: true },
@@ -116,7 +116,7 @@ export const recursos = {
       { key: 'grado', label: 'Grado' },
       { key: 'direccion', label: 'Dirección' },
       { key: 'acudiente_nombre', label: 'Acudiente' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'nombre', label: 'Nombres', type: 'text', required: true, visibleFor: [ADMIN, 'Acudiente'] },
@@ -136,7 +136,7 @@ export const recursos = {
       { key: 'licencia', label: 'Licencia' },
       { key: 'telefono', label: 'Teléfono' },
       { key: 'usuario_nombre', label: 'Cuenta de acceso' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'nombre', label: 'Nombres', type: 'text', required: true },
@@ -155,7 +155,7 @@ export const recursos = {
       { key: 'modelo', label: 'Modelo' },
       { key: 'capacidad', label: 'Capacidad' },
       { key: 'disponibilidad', label: 'Disponibilidad', tipo: 'insignia' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'placa', label: 'Placa', type: 'text', required: true },
@@ -174,7 +174,7 @@ export const recursos = {
       { key: 'hora_llegada', label: 'Llegada', tipo: 'hora' },
       { key: 'conductor_nombre', label: 'Conductor' },
       { key: 'vehiculo_placa', label: 'Vehículo' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'nombre', label: 'Nombre de la ruta', type: 'text', required: true },
@@ -191,7 +191,7 @@ export const recursos = {
       { key: 'nombre', label: 'Paradero' },
       { key: 'direccion', label: 'Dirección' },
       { key: 'referencia', label: 'Referencia' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'nombre', label: 'Nombre', type: 'text', required: true },
@@ -208,7 +208,7 @@ export const recursos = {
       { key: 'ruta_nombre', label: 'Ruta' },
       { key: 'paradero_nombre', label: 'Paradero' },
       { key: 'hora_salida', label: 'Hora de salida', tipo: 'hora' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'estudiante_id', label: 'Estudiante', type: 'select', source: 'estudiantes', required: true },
@@ -223,7 +223,7 @@ export const recursos = {
       { key: 'estudiante_nombre', label: 'Estudiante' },
       { key: 'ruta_nombre', label: 'Ruta' },
       { key: 'tipo', label: 'Tipo', tipo: 'insignia' },
-      { key: 'estado', label: 'Estado', tipo: 'insignia' }
+      { key: 'status', label: 'Estado', tipo: 'insignia' }
     ],
     campos: [
       { key: 'estudiante_id', label: 'Estudiante', type: 'select', source: 'estudiantes', required: true },

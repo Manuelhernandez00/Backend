@@ -19,19 +19,19 @@ def es_admin(usuario: Usuario) -> bool:
 
 def conductor_de(db: Session, usuario: Usuario):
     return db.query(Conductor).filter(
-        Conductor.usuario_id == usuario.id, Conductor.estado == "Activo"
+        Conductor.usuario_id == usuario.id, Conductor.status == "Activo"
     ).first()
 
 
 def acudiente_de(db: Session, usuario: Usuario):
     return db.query(Acudiente).filter(
-        Acudiente.usuario_id == usuario.id, Acudiente.estado == "Activo"
+        Acudiente.usuario_id == usuario.id, Acudiente.status == "Activo"
     ).first()
 
 
 def estudiante_de(db: Session, usuario: Usuario):
     return db.query(Estudiante).filter(
-        Estudiante.usuario_id == usuario.id, Estudiante.estado == "Activo"
+        Estudiante.usuario_id == usuario.id, Estudiante.status == "Activo"
     ).first()
 
 
@@ -46,7 +46,7 @@ def ids_rutas(db: Session, usuario: Usuario):
             return []
         return [
             r.id for r in db.query(Ruta.id).filter(
-                Ruta.conductor_id == conductor.id, Ruta.estado == "Activo"
+                Ruta.conductor_id == conductor.id, Ruta.status == "Activo"
             )
         ]
     ids_est = [e.id for e in consulta_estudiantes(db, usuario).with_entities(Estudiante.id)]
@@ -54,7 +54,7 @@ def ids_rutas(db: Session, usuario: Usuario):
         return []
     filas = db.query(EstudianteRuta.ruta_id).filter(
         EstudianteRuta.estudiante_id.in_(ids_est),
-        EstudianteRuta.estado == "Activo",
+        EstudianteRuta.status == "Activo",
     ).distinct()
     return [f[0] for f in filas]
 
@@ -75,7 +75,7 @@ def consulta_estudiantes(db: Session, usuario: Usuario):
         rutas = ids_rutas(db, usuario)
         sub = select(EstudianteRuta.estudiante_id).where(
             EstudianteRuta.ruta_id.in_(rutas or [-1]),
-            EstudianteRuta.estado == "Activo",
+            EstudianteRuta.status == "Activo",
         )
         return q.filter(Estudiante.id.in_(sub))
     return q.filter(false())

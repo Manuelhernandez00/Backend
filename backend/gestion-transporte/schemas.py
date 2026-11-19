@@ -8,7 +8,7 @@ Estado = Literal["Activo", "Inactivo"]
 
 class Opcional(BaseModel):
     """Permite reactivar un registro enviando estado='Activo'."""
-    estado: Optional[Estado] = None
+    status: Optional[Estado] = None
 
 
 class Salida(BaseModel):
@@ -16,9 +16,9 @@ class Salida(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
     id: int
-    creado: datetime
-    actualizado: datetime
-    estado: str
+    created: datetime
+    updated: datetime
+    status: str
 
 
 # ---------------- AUTENTICACIÓN ----------------

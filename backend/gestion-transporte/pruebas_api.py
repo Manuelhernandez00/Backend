@@ -73,13 +73,13 @@ ok(c.get(f"/fallas-vehiculo/{f['id']}", headers=H_acu).json()["atencion"]=="En r
 # --- baja lógica
 r = c.delete(f"/registros-abordaje/{ab_id}", headers=H_con); ok(r.status_code==200, "eliminar abordaje")
 ok(not any(x["id"]==ab_id for x in c.get("/registros-abordaje/", headers=H_acu).json()), "ya no aparece en listados")
-ok(any(x["id"]==ab_id and x["estado"]=="Inactivo" for x in c.get("/registros-abordaje/?incluir_inactivos=true", headers=H_adm).json()), "sigue en BD con estado Inactivo")
+ok(any(x["id"]==ab_id and x["status"]=="Inactivo" for x in c.get("/registros-abordaje/?incluir_inactivos=true", headers=H_adm).json()), "sigue en BD con estado Inactivo")
 
-# --- auditoría: actualizado cambia
+# --- auditoría: updated cambia
 e = est_acu[0]
 r = c.put(f"/estudiantes/{e['id']}", headers=H_acu, json={**{k:e[k] for k in ("nombre","apellido","documento","grado")}, "direccion":"Calle nueva 1-2", "acudiente_id": 999}); j=r.json()
 ok(j["direccion"]=="Calle nueva 1-2" and j["acudiente_id"]==e["acudiente_id"], "acudiente edita hijo; no puede cambiar acudiente_id")
-ok(j["actualizado"]>=e["actualizado"] and j["creado"]==e["creado"], "creado fijo / actualizado cambia")
+ok(j["updated"]>=e["updated"] and j["created"]==e["created"], "created fijo / updated cambia")
 # acudiente crea hijo
 r = c.post("/estudiantes/", headers=H_acu, json={"nombre":"Pedro","apellido":"Pérez Ortega","documento":"1100000001","grado":"6°","direccion":"Manga"}); ok(r.status_code==200 and r.json()["acudiente_id"]==e["acudiente_id"], "acudiente registra un hijo (acudiente_id automático)")
 # estudiante solo edita grado/direccion

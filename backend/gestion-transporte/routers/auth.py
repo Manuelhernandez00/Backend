@@ -41,14 +41,14 @@ def _sesion(usuario: Usuario) -> UsuarioSesion:
 @router.get("/roles", response_model=list[RolResponse])
 def roles_para_login(db: Session = Depends(get_db)):
     """Lista pública de roles para el selector del login."""
-    return db.query(Rol).filter(Rol.estado == "Activo").order_by(Rol.id).all()
+    return db.query(Rol).filter(Rol.status == "Activo").order_by(Rol.id).all()
 
 
 @router.post("/login", response_model=LoginResponse)
 def login(datos: LoginRequest, db: Session = Depends(get_db)):
     usuario = db.query(Usuario).filter(
         Usuario.correo == datos.correo.strip().lower(),
-        Usuario.estado == "Activo",
+        Usuario.status == "Activo",
     ).first()
 
     if not usuario or not verificar_password(datos.password, usuario.password_hash):

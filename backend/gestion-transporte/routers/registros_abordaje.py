@@ -41,7 +41,7 @@ def _validar(db, usuario, estudiante_id, ruta_id):
     asignado = db.query(EstudianteRuta).filter(
         EstudianteRuta.estudiante_id == estudiante_id,
         EstudianteRuta.ruta_id == ruta_id,
-        EstudianteRuta.estado == "Activo",
+        EstudianteRuta.status == "Activo",
     ).first()
     if not asignado:
         raise HTTPException(400, "El estudiante no está asignado a esa ruta")

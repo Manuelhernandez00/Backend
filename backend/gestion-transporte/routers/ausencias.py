@@ -48,7 +48,7 @@ def _estudiante_objetivo(db, usuario, estudiante_id):
 def _ruta_del_estudiante(db, estudiante_id):
     asignacion = db.query(EstudianteRuta).filter(
         EstudianteRuta.estudiante_id == estudiante_id,
-        EstudianteRuta.estado == "Activo",
+        EstudianteRuta.status == "Activo",
     ).first()
     return asignacion.ruta_id if asignacion else None
 
@@ -109,7 +109,7 @@ def actualizar_ausencia(
             if cuerpo.estudiante_id:
                 ausencia.estudiante_id = cuerpo.estudiante_id
                 ausencia.ruta_id = _ruta_del_estudiante(db, cuerpo.estudiante_id)
-        aplicar(ausencia, {"estado": cuerpo.estado})
+        aplicar(ausencia, {"status": cuerpo.status})
 
     db.commit()
     db.refresh(ausencia)
